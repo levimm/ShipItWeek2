@@ -7,6 +7,11 @@ x = np.uint8([250])
 
 img1 = cv2.imread('C:\\Users\\lma5\\Pictures\\burst\\burst01.JPG', cv2.IMREAD_COLOR)
 img2 = cv2.imread('C:\\Users\\lma5\\Pictures\\burst\\burst02.JPG', cv2.IMREAD_COLOR)
+tmp = cv2.bitwise_and(img1,img2)
+
+cv2.imshow('selfImage', tmp)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
 # img = cv2.resize(img,  (100,100))
 
 result_opencv = cv2.add(img1, img2) # saturation 
@@ -26,6 +31,10 @@ img2_fg = cv2.bitwise_and(img2,img2,mask = mask)
 dst = cv2.add(img1_bg,img2_fg)
 img1[0:rows, 0:cols ] = dst
 
-cv2.imshow('selfImage', mask)
+
+tmp = cv2.bitwise_or(img1,img2)
+
+cv2.imshow('selfImage', img1)
+print mask.shape
 cv2.waitKey(0)
 cv2.destroyAllWindows()
